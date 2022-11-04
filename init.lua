@@ -75,6 +75,7 @@ core.register_on_receiving_chat_message(function(message)
 	if data then
 		text = morse_decode(data)
 	end
+	if not text then return end
 	if text:match("%S+") and sender then
 		core.after(0.1,function()
 			core.display_chat_message(core.colorize('#FF0','Morse: '..sender).." "..text)
